@@ -4,7 +4,7 @@ rule astj
   command = /home/jiae/rs/simple-rstodo/node_modules/rescript/linux/bsc.exe  -bs-v 10.0.1 -bs-jsx 3  -absname -bs-ast -o $out $i
 o src/App.ast : astj ../../src/App.res
 rule deps
-  command = /home/jiae/rs/simple-rstodo/node_modules/rescript/linux/bsb_helper.exe -hash 01acf79cbf4be320c0379f66fb52f9be $in
+  command = /home/jiae/rs/simple-rstodo/node_modules/rescript/linux/bsb_helper.exe -hash 6f75cb7e4dad48fa79dd6e0545bff799 $in
   restat = 1
 o src/App.d : deps src/App.ast
 rule mij
@@ -12,9 +12,6 @@ rule mij
   dyndep = 1
   restat = 1
 o src/App.cmj src/App.cmi ../../src/App.bs.js : mij src/App.ast
-o src/Test.ast : astj ../../src/Test.res
-o src/Test.d : deps src/Test.ast
-o src/Test.cmj src/Test.cmi ../../src/Test.bs.js : mij src/Test.ast
 o src/index.ast : astj ../../src/index.res
 o src/index.d : deps src/index.ast
 o src/index.cmj src/index.cmi ../../src/index.bs.js : mij src/index.ast

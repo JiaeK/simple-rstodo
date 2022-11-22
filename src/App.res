@@ -50,34 +50,42 @@ let reducer = (state, action) => {
   }
 }
 
+module FaPlusCircle = {
+  @module("react-icons/fa") @react.component
+  external make: React.element = "FaPlusCircle"
+}
+
+module FaTrash = {
+  @module("react-icons/fa") @react.component
+  external make: React.element = "FaTrash"
+}
+
 @react.component
 let make = () => {
   let (state, dispatch) = React.useReducer(reducer, initialState)
 
   let handleInput = e => {
     let newValue = ReactEvent.Form.target(e)["value"]
-    // same with 'dispatch(InputChanged(newValue))'
     newValue->InputChanged->dispatch
   }
 
   <div className="container">
     <div className="inner">
-      <div className="header">
-        <div
-          style={ReactDOM.Style.make(
-            ~fontSize="6rem",
-            ~fontWeight="600",
-            ~marginBottom="2rem",
-            ~lineHeight="1em",
-            ~color="#ececec",
-            ~textTransform="lowercase",
-            ~textAlign="center",
-            (),
-          )}>
-          {"todos"->React.string}
-        </div>
+      <div
+        className="header"
+        style={ReactDOM.Style.make(
+          ~fontSize="6rem",
+          ~fontWeight="600",
+          ~marginBottom="2rem",
+          ~lineHeight="1em",
+          ~color="#ececec",
+          ~textTransform="lowercase",
+          ~textAlign="center",
+          (),
+        )}>
+        {"todos"->React.string}
       </div>
-      <form onSubmit={handleInput} className="form-container">
+      <form className="form-container">
         <input
           className="input-text"
           placeholder="Add todo..."
@@ -85,29 +93,36 @@ let make = () => {
           type_="text"
           onChange={handleInput}
         />
+        //button
       </form>
-      <button onClick={_ => dispatch(AddTodo)}> {"Add"->React.string} </button>
-      <button onClick={_ => dispatch(ClearTodos)}> {"Clear"->React.string} </button>
-      <ul>
+      <button className="input-submit" onClick={_ => dispatch(AddTodo)}>
+        <FaPlusCircle />
+      </button>
+      <ul className="todoslist">
+        // <li className="item">
         {state.todoList
         ->Belt.Array.mapWithIndex((i, todo) => {
-          <div
+          <li
+            className="item"
             onClick={_ => i->MarkDone->dispatch}
             key={todo.title}
             style={ReactDOM.Style.make(
-              ~fontStyle={todo.isDone ? "italic" : ""},
+              ~fontStyle={todo.isDone ? "italic" : "bold"},
               ~textDecoration={todo.isDone ? "line-through" : "initial"},
-              ~color="#595959",
               ~opacity={todo.isDone ? "0.4" : "1"},
+              ~color={todo.isDone ? "#595959" : "black"},
               ~padding="1rem",
-              ~fontSize="1.5rem",
-              ~margin="1rem 0",
+              //~fontSize="1.5rem",
               (),
             )}>
             {todo.title->React.string}
-          </div>
+            <button onClick={_ => dispatch(ClearTodos)}>
+              <FaTrash />
+            </button>
+          </li>
         })
         ->React.array}
+        // </li>
       </ul>
     </div>
   </div>
