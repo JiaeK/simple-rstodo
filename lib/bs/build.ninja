@@ -1,0 +1,20 @@
+rescript = 1
+g_finger := /home/jiae/rs/simple-rstodo/node_modules/@rescript/react/lib/ocaml/install.stamp
+rule astj
+  command = /home/jiae/rs/simple-rstodo/node_modules/rescript/linux/bsc.exe  -bs-v 10.0.1 -bs-jsx 3  -absname -bs-ast -o $out $i
+o src/App.ast : astj ../../src/App.res
+rule deps
+  command = /home/jiae/rs/simple-rstodo/node_modules/rescript/linux/bsb_helper.exe -hash 01acf79cbf4be320c0379f66fb52f9be $in
+  restat = 1
+o src/App.d : deps src/App.ast
+rule mij
+  command = /home/jiae/rs/simple-rstodo/node_modules/rescript/linux/bsc.exe -I src -I /home/jiae/rs/simple-rstodo/node_modules/@rescript/react/lib/ocaml   -bs-package-name 'Simple ReScript TODO' -bs-package-output es6:$in_d:.bs.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o src/App.cmj src/App.cmi ../../src/App.bs.js : mij src/App.ast
+o src/Test.ast : astj ../../src/Test.res
+o src/Test.d : deps src/Test.ast
+o src/Test.cmj src/Test.cmi ../../src/Test.bs.js : mij src/Test.ast
+o src/index.ast : astj ../../src/index.res
+o src/index.d : deps src/index.ast
+o src/index.cmj src/index.cmi ../../src/index.bs.js : mij src/index.ast
