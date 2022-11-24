@@ -7,4 +7,28 @@ o Todos.cmi : cp ../bs/src/Todos.cmi
 o Todos.cmj : cp ../bs/src/Todos.cmj
 o Todos.cmt : cp ../bs/src/Todos.cmt
 o Todos.res : cp ../../src/Todos.res
-build install.stamp : touch Todos.cmi Todos.cmj 
+o Header.cmi : cp ../bs/src/Header.cmi
+o Header.cmj : cp ../bs/src/Header.cmj
+o Header.cmt : cp ../bs/src/Header.cmt
+o Header.res : cp ../../src/Header.res
+o Spread.cmi : cp ../bs/src/Spread.cmi
+o Spread.cmj : cp ../bs/src/Spread.cmj
+o Spread.cmt : cp ../bs/src/Spread.cmt
+o Spread.res : cp ../../src/Spread.res
+o Toggle.cmi : cp ../bs/src/Toggle.cmi
+o Toggle.cmj : cp ../bs/src/Toggle.cmj
+o Toggle.cmt : cp ../bs/src/Toggle.cmt
+o Toggle.res : cp ../../src/Toggle.res
+o TodoItem.cmi : cp ../bs/src/TodoItem.cmi
+o TodoItem.cmj : cp ../bs/src/TodoItem.cmj
+o TodoItem.cmt : cp ../bs/src/TodoItem.cmt
+o TodoItem.res : cp ../../src/TodoItem.res
+o InputTodo.cmi : cp ../bs/src/InputTodo.cmi
+o InputTodo.cmj : cp ../bs/src/InputTodo.cmj
+o InputTodo.cmt : cp ../bs/src/InputTodo.cmt
+o InputTodo.res : cp ../../src/InputTodo.res
+o TodoComponent.cmi : cp ../bs/src/TodoComponent.cmi
+o TodoComponent.cmj : cp ../bs/src/TodoComponent.cmj
+o TodoComponent.cmt : cp ../bs/src/TodoComponent.cmt
+o TodoComponent.res : cp ../../src/TodoComponent.res
+build install.stamp : touch Todos.cmi Todos.cmj Header.cmi Header.cmj Spread.cmi Spread.cmj Toggle.cmi Toggle.cmj TodoItem.cmi TodoItem.cmj InputTodo.cmi InputTodo.cmj TodoComponent.cmi TodoComponent.cmj 

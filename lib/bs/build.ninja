@@ -4,7 +4,7 @@ rule astj
   command = /home/jiae/rs/simple-rstodonext/node_modules/rescript/linux/bsc.exe  -bs-v 10.0.1 -bs-jsx 3  -absname -bs-ast -o $out $i
 o src/Todos.ast : astj ../../src/Todos.res
 rule deps
-  command = /home/jiae/rs/simple-rstodonext/node_modules/rescript/linux/bsb_helper.exe -hash 61d59dbb8f34db66abc737f6d666d8a7 $in
+  command = /home/jiae/rs/simple-rstodonext/node_modules/rescript/linux/bsb_helper.exe -hash b2d5a001376fb1614ccdd853a8334218 $in
   restat = 1
 o src/Todos.d : deps src/Todos.ast
 rule mij
@@ -12,3 +12,21 @@ rule mij
   dyndep = 1
   restat = 1
 o src/Todos.cmj src/Todos.cmi ../../src/Todos.bs.js : mij src/Todos.ast
+o src/Header.ast : astj ../../src/Header.res
+o src/Header.d : deps src/Header.ast
+o src/Header.cmj src/Header.cmi ../../src/Header.bs.js : mij src/Header.ast
+o src/Spread.ast : astj ../../src/Spread.res
+o src/Spread.d : deps src/Spread.ast
+o src/Spread.cmj src/Spread.cmi ../../src/Spread.bs.js : mij src/Spread.ast
+o src/Toggle.ast : astj ../../src/Toggle.res
+o src/Toggle.d : deps src/Toggle.ast
+o src/Toggle.cmj src/Toggle.cmi ../../src/Toggle.bs.js : mij src/Toggle.ast
+o src/TodoItem.ast : astj ../../src/TodoItem.res
+o src/TodoItem.d : deps src/TodoItem.ast
+o src/TodoItem.cmj src/TodoItem.cmi ../../src/TodoItem.bs.js : mij src/TodoItem.ast
+o src/InputTodo.ast : astj ../../src/InputTodo.res
+o src/InputTodo.d : deps src/InputTodo.ast
+o src/InputTodo.cmj src/InputTodo.cmi ../../src/InputTodo.bs.js : mij src/InputTodo.ast
+o src/TodoComponent.ast : astj ../../src/TodoComponent.res
+o src/TodoComponent.d : deps src/TodoComponent.ast
+o src/TodoComponent.cmj src/TodoComponent.cmi ../../src/TodoComponent.bs.js : mij src/TodoComponent.ast
