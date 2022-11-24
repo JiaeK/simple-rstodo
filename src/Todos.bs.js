@@ -81,7 +81,7 @@ function Todos$default(Props) {
                         textAlign: "center",
                         textTransform: "lowercase"
                       }
-                    }, "todos"), React.createElement("form", {
+                    }, "todos"), React.createElement("div", {
                       className: "form-container"
                     }, React.createElement("input", {
                           className: "input-text",
@@ -89,12 +89,12 @@ function Todos$default(Props) {
                           type: "text",
                           value: state.inputValue,
                           onChange: handleInput
-                        })), React.createElement("button", {
-                      className: "input-submit",
-                      onClick: (function (param) {
-                          Curry._1(dispatch, /* AddTodo */0);
-                        })
-                    }, React.createElement(Fa.FaPlusCircle, {})), React.createElement("ul", {
+                        }), React.createElement("button", {
+                          className: "input-submit",
+                          onClick: (function (param) {
+                              Curry._1(dispatch, /* AddTodo */0);
+                            })
+                        }, React.createElement(Fa.FaPlusCircle, {}))), React.createElement("ul", {
                       className: "todoslist"
                     }, Belt_Array.mapWithIndex(state.todoList, (function (i, todo) {
                             return React.createElement("li", {

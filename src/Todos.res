@@ -82,7 +82,7 @@ let default = () => {
         )}>
         {"todos"->React.string}
       </div>
-      <form className="form-container">
+      <div className="form-container">
         <input
           className="input-text"
           placeholder="Add todo..."
@@ -90,11 +90,10 @@ let default = () => {
           type_="text"
           onChange={handleInput}
         />
-        //button
-      </form>
-      <button className="input-submit" onClick={_ => dispatch(AddTodo)}>
-        <FaPlusCircle />
-      </button>
+        <button className="input-submit" onClick={_ => dispatch(AddTodo)}>
+          <FaPlusCircle />
+        </button>
+      </div>
       <ul className="todoslist">
         // <li className="item">
         {state.todoList
