@@ -55,7 +55,7 @@ var FaPlusCircle = {};
 
 var FaTrash = {};
 
-function Todos(Props) {
+function Todos$default(Props) {
   var match = React.useReducer(reducer, initialState);
   var dispatch = match[1];
   var state = match[0];
@@ -121,13 +121,14 @@ function Todos(Props) {
                           })))));
 }
 
-var make = Todos;
+var $$default = Todos$default;
 
 export {
   initialState ,
   reducer ,
   FaPlusCircle ,
   FaTrash ,
-  make ,
+  $$default ,
+  $$default as default,
 }
 /* react Not a pure module */

@@ -58,7 +58,7 @@ module FaTrash = {
 }
 
 @react.component
-let make = () => {
+let default = () => {
   let (state, dispatch) = React.useReducer(reducer, initialState)
 
   let handleInput = e => {
