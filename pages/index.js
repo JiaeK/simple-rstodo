@@ -16,7 +16,6 @@ export default function App() {
         <div id="__next">
         <React.StrictMode>
           <Todos />
- 
         </React.StrictMode>
         </div>
       </main>

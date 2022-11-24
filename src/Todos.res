@@ -66,6 +66,16 @@ let default = () => {
     newValue->InputChanged->dispatch
   }
 
+  //let handleSubmit = (action, event) => {
+  //  ReactEvent.Form.preventDefault(event)
+  //  action()
+  //}
+
+  //let deleteHandler = (action, event) => {
+  //  ReactEvent.Mouse.preventDefault(event)
+  //  _ => dispatch(ClearTodos)
+  //}
+
   <div className="container">
     <div className="inner">
       <div
@@ -95,30 +105,30 @@ let default = () => {
         </button>
       </div>
       <ul className="todoslist">
-        // <li className="item">
-        {state.todoList
-        ->Belt.Array.mapWithIndex((i, todo) => {
-          <li
-            className="item"
-            onClick={_ => i->MarkDone->dispatch}
-            key={todo.title}
-            style={ReactDOM.Style.make(
-              ~fontStyle={todo.isDone ? "italic" : "bold"},
-              ~textDecoration={todo.isDone ? "line-through" : "initial"},
-              ~opacity={todo.isDone ? "0.4" : "1"},
-              ~color={todo.isDone ? "#595959" : "black"},
-              ~padding="1rem",
-              //~fontSize="1.5rem",
-              (),
-            )}>
-            {todo.title->React.string}
-            <button onClick={_ => dispatch(ClearTodos)}>
-              <FaTrash />
-            </button>
-          </li>
-        })
-        ->React.array}
-        // </li>
+        <li className="item">
+          {state.todoList
+          ->Belt.Array.mapWithIndex((i, todo) => {
+            <div
+              className="item"
+              onClick={_ => i->MarkDone->dispatch}
+              key={todo.title}
+              style={ReactDOM.Style.make(
+                ~fontStyle={todo.isDone ? "italic" : "bold"},
+                ~textDecoration={todo.isDone ? "line-through" : "initial"},
+                ~opacity={todo.isDone ? "0.4" : "1"},
+                ~color={todo.isDone ? "#595959" : "black"},
+                ~padding="1rem",
+                //~fontSize="1.5rem",
+                (),
+              )}>
+              {todo.title->React.string}
+              <button onClick={_ => dispatch(ClearTodos)}>
+                <FaTrash />
+              </button>
+            </div>
+          })
+          ->React.array}
+        </li>
       </ul>
     </div>
   </div>

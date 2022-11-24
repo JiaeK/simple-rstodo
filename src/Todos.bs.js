@@ -96,29 +96,31 @@ function Todos$default(Props) {
                             })
                         }, React.createElement(Fa.FaPlusCircle, {}))), React.createElement("ul", {
                       className: "todoslist"
-                    }, Belt_Array.mapWithIndex(state.todoList, (function (i, todo) {
-                            return React.createElement("li", {
-                                        key: todo.title,
-                                        className: "item",
-                                        style: {
-                                          color: todo.isDone ? "#595959" : "black",
-                                          fontStyle: todo.isDone ? "italic" : "bold",
-                                          padding: "1rem",
-                                          textDecoration: todo.isDone ? "line-through" : "initial",
-                                          opacity: todo.isDone ? "0.4" : "1"
-                                        },
-                                        onClick: (function (param) {
-                                            Curry._1(dispatch, {
-                                                  TAG: /* MarkDone */1,
-                                                  _0: i
-                                                });
-                                          })
-                                      }, todo.title, React.createElement("button", {
+                    }, React.createElement("li", {
+                          className: "item"
+                        }, Belt_Array.mapWithIndex(state.todoList, (function (i, todo) {
+                                return React.createElement("div", {
+                                            key: todo.title,
+                                            className: "item",
+                                            style: {
+                                              color: todo.isDone ? "#595959" : "black",
+                                              fontStyle: todo.isDone ? "italic" : "bold",
+                                              padding: "1rem",
+                                              textDecoration: todo.isDone ? "line-through" : "initial",
+                                              opacity: todo.isDone ? "0.4" : "1"
+                                            },
                                             onClick: (function (param) {
-                                                Curry._1(dispatch, /* ClearTodos */1);
+                                                Curry._1(dispatch, {
+                                                      TAG: /* MarkDone */1,
+                                                      _0: i
+                                                    });
                                               })
-                                          }, React.createElement(Fa.FaTrash, {})));
-                          })))));
+                                          }, todo.title, React.createElement("button", {
+                                                onClick: (function (param) {
+                                                    Curry._1(dispatch, /* ClearTodos */1);
+                                                  })
+                                              }, React.createElement(Fa.FaTrash, {})));
+                              }))))));
 }
 
 var $$default = Todos$default;
